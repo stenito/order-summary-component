@@ -31,7 +31,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/stenito/order-summary-component](https://github.com/stenito/order-summary-component)
-- Live Site URL: [](https://stenito-order-summary-component.netlify.app/)
+- Live Site URL: [https://stenito-order-summary-component.netlify.app/](https://stenito-order-summary-component.netlify.app/)
 
 ## My process
 
