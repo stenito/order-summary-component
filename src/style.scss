@@ -1,0 +1,226 @@
+@charset 'utf8';
+
+$set-font-smoothing: true;
+$set-scroll-behavior: auto;
+$set-text-rendering: precision;
+
+:root {
+    --color-bright-blue: hsl(245, 75%, 52%);
+    --color-dark-blue: hsl(223, 47%, 23%);
+    --color-desaturated-blue: hsl(224, 23%, 55%);
+    --color-pale-blue: hsl(225, 100%, 94%);
+    --color-very-pale-blue: hsl(225, 100%, 98%);
+    --color-white: hsl(0, 0%, 100%);
+    --color-hover: hsl(245, 83%, 68%);
+}
+
+html {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+    font-family: 'Red Hat Display', sans-serif;
+    font-feature-settings: 'kern';
+    font-synthesis: none;
+    height: 100%;
+    min-height: 100%;
+    @if $set-scroll-behavior {
+        scroll-behavior: $set-scroll-behavior;
+    }
+    @if $set-font-smoothing {
+        -webkit-font-smoothing: antialiased;
+        font-smooth: always;
+    }
+    @if $set-text-rendering == 'auto' {
+        text-rendering: auto;
+    } @else if $set-text-rendering == 'speed' {
+        text-rendering: optimizeSpeed;
+    } @else {
+        text-rendering: geometricPrecision;
+    }
+    // color: var(--color);
+    font-size: 16px;
+}
+
+*,
+*:before,
+*::before,
+*:after,
+*::after {
+    -webkit-tap-highlight-color: inherit;
+    box-sizing: inherit;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    min-height: 100%;
+    padding: 0;
+}
+
+.container {
+    align-items: center;
+    background: url('./images/pattern-background-mobile.svg') repeat-x center top;
+    background-color: var(--color-pale-blue);
+    display: flex;
+    justify-content: center;
+    min-height: 100%;
+    padding: 24px;
+    .card {
+        background-color: var(--color-white);
+        border-radius: 20px;
+        box-shadow: 0 40px 40px rgba(13, 48, 89, 0.15);
+        color: var(--color-dark-blue);
+        max-width: 350px;
+        overflow: hidden;
+        a,
+        a:link,
+        a:visited {
+            color: var(--color-bright-blue);
+            &:hover {
+                color: var(--color-hover);
+                text-decoration: none;
+            }
+        }
+        .hero {
+            img {
+                width: 100%;
+            }
+        }
+        .content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            h1 {
+                font-size: 22px;
+                font-weight: 900;
+                color: var(--color-dark-blue);
+                margin-block-start: 4px;
+                margin-block-end: 16px;
+            }
+            p {
+                font-size: 15px;
+                font-weight: 500;
+                text-align: center;
+                color: var(--color-desaturated-blue);
+                margin-block-end: 26px;
+                margin-block-start: 0;
+                padding: 0 16px;
+                line-height: 24px;
+            }
+            .info {
+                padding: 16px;
+                background-color: var(--color-very-pale-blue);
+                display: flex;
+                width: 100%;
+                border-radius: 11px;
+                align-items: center;
+                justify-content: space-between;
+                margin-block-end: 25px;
+                .start {
+                    display: flex;
+                    align-items: center;
+                    .music {
+                        border-radius: 50%;
+                        background-color: var(--color-pale-blue);
+                        width: 48px;
+                        height: 48px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-inline-end: 16px;
+                    }
+                    .cost {
+                        font-size: 15px;
+                        .plan {
+                            font-weight: 900;
+                            color: var(--color-dark-blue);
+                        }
+                        .price {
+                            font-size: 15px;
+                            font-weight: 500;
+                            color: var(--color-desaturated-blue);
+                        }
+                    }
+                }
+                .change {
+                    font-size: 13px;
+                    font-weight: 700;
+                }
+            }
+            .proceed {
+                padding: 15px;
+                font-size: 15px;
+                font-weight: 900;
+                color: var(--color-white);
+                background-color: var(--color-bright-blue);
+                border: 0;
+                border-radius: 11px;
+                width: 100%;
+                box-shadow: 0 20px 20px rgba(56, 41, 224, 0.19);
+                margin-block-end: 24px;
+                font-family: inherit;
+                cursor: pointer;
+                &:hover {
+                    background-color: var(--color-hover);
+                }
+            }
+            .cancel {
+                font-size: 15px;
+                font-weight: 900;
+                color: var(--color-desaturated-blue);
+                text-decoration: none;
+                margin-block-end: 9px;
+                &:hover {
+                    color: var(--color-dark-blue);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .container {
+        background: url('./images/pattern-background-desktop.svg') repeat-x center top;
+        background-color: var(--color-pale-blue);
+        .card {
+            max-width: 450px;
+            .content {
+                padding: 32px 48px 48px;
+                h1 {
+                    font-size: 28px;
+                    margin-block-start: 8px;
+                    margin-block-end: 17px;
+                }
+                p {
+                    font-size: 16px;
+                    line-height: 26px;
+                    margin-block-end: 21px;
+                }
+                .info {
+                    padding: 24px;
+                    margin-block-end: 33px;
+                    .start {
+                        .music {
+                            margin-inline-end: 18px;
+                        }
+                        .cost {
+                            .plan {
+                                font-size: 17px;
+                            }
+                            .price {
+                                font-size: 17px;
+                            }
+                        }
+                    }
+                }
+                .proceed {
+                    margin-block-end: 32px;
+                }
+                .cancel {
+                    margin-block-end: 0px;
+                }
+            }
+        }
+    }
+}
